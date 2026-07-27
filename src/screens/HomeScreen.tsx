@@ -1,4 +1,3 @@
-import { CONSONANTS, VOWELS } from '../data/alphabet';
 import './HomeScreen.css';
 
 interface Props {
