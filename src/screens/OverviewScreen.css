@@ -1,0 +1,129 @@
+.overview-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 32px 20px 60px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.screen-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #a0aec0;
+  cursor: pointer;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.back-btn:hover {
+  color: #e8c547;
+}
+
+.overview-title {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #fff;
+  flex: 1;
+  text-align: center;
+}
+
+.overview-hint {
+  margin: 0;
+  color: #718096;
+  font-size: 0.85rem;
+}
+
+.subset-picker {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.subset-btn {
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: 2px solid #2d3748;
+  background: transparent;
+  color: #a0aec0;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.subset-btn:hover {
+  border-color: #e8c547;
+  color: #e8c547;
+}
+
+.subset-btn.active {
+  background: #e8c547;
+  border-color: #e8c547;
+  color: #1a1a2e;
+  font-weight: 600;
+}
+
+.tile-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 14px;
+  width: 100%;
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 120px;
+  padding: 16px 8px;
+  border-radius: 16px;
+  border: 2px solid #2d3748;
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tile:hover {
+  border-color: #63b3ed;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.tile.revealed {
+  border-color: #e8c547;
+  background: linear-gradient(135deg, #16213e, #0f3460);
+}
+
+.tile-glyph {
+  font-size: 2.4rem;
+  color: #e8c547;
+  line-height: 1;
+}
+
+.tile-wylie {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  letter-spacing: 1px;
+}
+
+.tile-pronunciation {
+  font-size: 0.68rem;
+  color: #a0aec0;
+  text-align: center;
+  line-height: 1.3;
+}

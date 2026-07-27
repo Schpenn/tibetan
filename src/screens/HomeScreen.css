@@ -1,0 +1,99 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 40px 20px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.home-hero {
+  text-align: center;
+}
+
+.tibetan-big {
+  display: block;
+  font-size: 4rem;
+  color: #e8c547;
+  text-shadow: 0 0 30px rgba(232, 197, 71, 0.4);
+  line-height: 1.2;
+}
+
+.home-title {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.subtitle {
+  font-size: 1.6rem;
+  color: #fff;
+  font-weight: 300;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.home-desc {
+  margin: 12px 0 0;
+  color: #a0aec0;
+  font-size: 1rem;
+}
+
+.mode-cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.mode-card {
+  flex: 1;
+  min-width: 200px;
+  max-width: 260px;
+  padding: 28px 20px;
+  border-radius: 20px;
+  border: 2px solid #2d3748;
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  color: #fff;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.25s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.mode-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.overview-card:hover   { border-color: #b794f4; }
+.flashcard-card:hover  { border-color: #63b3ed; }
+.quiz-card:hover       { border-color: #68d391; }
+
+.mode-icon {
+  font-size: 2.5rem;
+}
+
+.mode-card h2 {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+.mode-card p {
+  margin: 0;
+  color: #a0aec0;
+  font-size: 0.88rem;
+  line-height: 1.5;
+}
+
+.stats-hint {
+  color: #4a5568;
+  font-size: 0.8rem;
+  text-align: center;
+}

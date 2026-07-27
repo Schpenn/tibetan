@@ -1,0 +1,72 @@
+.flashcard-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  padding: 32px 20px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.screen-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #a0aec0;
+  cursor: pointer;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  padding: 0;
+  transition: color 0.2s;
+}
+
+.back-btn:hover {
+  color: #e8c547;
+}
+
+.card-area {
+  display: flex;
+  justify-content: center;
+}
+
+.flashcard-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.action-btn {
+  padding: 14px 40px;
+  border-radius: 12px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.reveal-btn {
+  background: #2d3748;
+  color: #e8c547;
+  border: 2px solid #e8c547;
+}
+
+.reveal-btn:hover {
+  background: #e8c547;
+  color: #1a1a2e;
+}
+
+.next-btn {
+  background: #e8c547;
+  color: #1a1a2e;
+}
+
+.next-btn:hover {
+  background: #f6ad55;
+  transform: translateY(-2px);
+}

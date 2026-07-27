@@ -1,0 +1,88 @@
+.letter-card {
+  width: 280px;
+  height: 320px;
+  perspective: 1000px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.letter-card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+}
+
+.letter-card.revealed .letter-card-inner {
+  transform: rotateY(180deg);
+}
+
+.letter-card-front,
+.letter-card-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+.letter-card-front {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  border: 2px solid #e8c547;
+}
+
+.letter-card-back {
+  background: linear-gradient(135deg, #16213e, #0f3460);
+  border: 2px solid #e8c547;
+  transform: rotateY(180deg);
+}
+
+.tibetan-glyph {
+  font-size: 7rem;
+  line-height: 1;
+  color: #e8c547;
+  text-shadow: 0 0 20px rgba(232, 197, 71, 0.4);
+}
+
+.tibetan-glyph.small {
+  font-size: 3rem;
+}
+
+.wylie {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+.wylie.small {
+  font-size: 1.4rem;
+}
+
+.wylie.prompt-wylie {
+  font-size: 3.2rem;
+  color: #e8c547;
+  text-shadow: 0 0 20px rgba(232, 197, 71, 0.4);
+}
+
+.pronunciation {
+  font-size: 0.95rem;
+  color: #a0aec0;
+  margin: 0;
+  text-align: center;
+}
+
+.tap-hint {
+  font-size: 0.8rem;
+  color: #4a5568;
+  margin: 0;
+  margin-top: 8px;
+}
