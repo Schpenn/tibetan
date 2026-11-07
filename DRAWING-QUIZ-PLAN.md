@@ -59,38 +59,46 @@ complete**, and no scored drawing release is authorized by font coverage.
 Create a pure evaluation module, for example
 `src/utils/evaluateDrawing.ts`, separate from React.
 
-- [ ] Define typed inputs and outputs. Distinguish:
+- [x] Define typed inputs and outputs. Distinguish:
       - Accepted drawing.
       - Rejected drawing.
       - Ambiguous drawing.
       - Invalid input, such as an empty canvas.
       - Evaluation failure, such as a missing reference asset.
-- [ ] Normalize drawings and references identically:
+- [x] Normalize drawings and references identically:
       1. Extract foreground ink.
       2. Crop empty margins.
       3. Resize to a fixed working resolution while preserving aspect ratio.
       4. Center with consistent padding.
       5. Standardize line thickness to reduce device and brush-width effects.
-- [ ] Prototype symmetric distance-transform matching:
+- [x] Prototype symmetric distance-transform matching:
       - Measure distances from drawn ink to reference ink.
       - Measure distances from reference ink to drawn ink.
       - Combine both directions so missing strokes and extra marks are penalized.
       - Compare against multiple approved references for each letter.
-- [ ] Add calibrated safeguards against tiny marks, excessive ink coverage, and
+- [x] Add conservative prototype safeguards against tiny marks, excessive ink coverage, and
       obvious scribbles. Avoid arbitrary checks that reject legitimate letters.
-- [ ] Compare against competing consonants, not only the requested one.
-- [ ] Require both sufficient similarity to the target and sufficient separation
+- [x] Compare against competing consonants, not only the requested one.
+- [x] Require both sufficient similarity to the target and sufficient separation
       from competing letters. Treat close competition as ambiguous.
-- [ ] Avoid aggressive rotation or distortion normalization that could transform
+- [x] Avoid aggressive rotation or distortion normalization that could transform
       a wrong letter into an accepted shape.
-- [ ] Keep scores internal initially. Do not describe a similarity score as a
+- [x] Keep scores internal initially. Do not describe a similarity score as a
       probability of correctness.
-- [ ] Surface missing assets and processing errors explicitly; never turn them
+- [x] Surface missing assets and processing errors explicitly; never turn them
       into an incorrect answer or an apparently successful result.
 
 **Done when:** a deterministic prototype distinguishes approved shapes from
 representative wrong shapes and produces explicit outcomes for invalid input
 and failures.
+
+**Prototype status:** `src/utils/evaluateDrawing.ts` implements deterministic
+normalization and symmetric raster-distance comparison, with internal
+prototype-only thresholds. Tests exercise distinct bitmap shapes and the
+available labeled synthetic blank, tiny-mark, and scribble recipes. They do not
+establish handwriting recognition quality. `HUMAN_DRAWING_FIXTURES` remains
+empty; representative approved and incorrect handwriting, expert-reviewed
+references, and calibration are still required before considering scored play.
 
 ## Step 3: Calibrate and make a recognition go/no-go decision
 
@@ -217,9 +225,9 @@ and does not change navigation or results for other modes.
 
 ## Step 8: Verify behavior and release readiness
 
-The repository currently has build and lint scripts but no test script.
-Introduce only the minimal testing setup needed for automated matcher and state
-tests, following repository conventions at implementation time.
+The repository has build and lint scripts. The matcher prototype uses Node's
+built-in test runner and TypeScript type stripping for focused tests without
+adding a test dependency.
 
 - [ ] Test normalization across drawing positions, scales, and input dimensions.
 - [ ] Test the matcher with labeled acceptable, incorrect, confusing, malformed,
