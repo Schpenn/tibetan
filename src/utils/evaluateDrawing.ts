@@ -298,13 +298,19 @@ export function evaluateDrawing(
       return { status: 'evaluation-failure', reason: 'missing-target-reference' };
     }
     const competingIds = Object.keys(references).filter(
-      (letterId) =>
-        letterId !== targetLetterId &&
-        Array.isArray(references[letterId]) &&
-        references[letterId].length > 0,
+      (letterId) => letterId !== targetLetterId,
     );
     if (competingIds.length === 0) {
       return { status: 'evaluation-failure', reason: 'missing-competing-references' };
+    }
+    for (const letterId of competingIds) {
+      const competingReferences = references[letterId];
+      if (!Array.isArray(competingReferences)) {
+        return { status: 'evaluation-failure', reason: 'invalid-reference' };
+      }
+      if (competingReferences.length === 0) {
+        return { status: 'evaluation-failure', reason: 'missing-competing-references' };
+      }
     }
 
     const targetScore = scoreReferences(normalizedDrawing, targetReferences);
