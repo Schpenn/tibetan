@@ -120,7 +120,11 @@ function normalize(raster: InkRaster): NormalizedInk | DrawingEvaluation {
   }
 
   const pixels = thicken(skeleton);
-  return { pixels, count: countInk(pixels) };
+  const count = countInk(pixels);
+  if (count === 0) {
+    return { status: 'evaluation-failure', reason: 'processing-failure' };
+  }
+  return { pixels, count };
 }
 
 function thin(source: Uint8Array): Uint8Array {
