@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { TibetanGlyph } from '../components/TibetanGlyph';
 import { CONSONANTS, VOWELS, ALL_LETTERS } from '../data/alphabet';
 import type { TibetanLetter } from '../data/alphabet';
 import './OverviewScreen.css';
@@ -16,7 +17,7 @@ function LetterTile({ letter }: { letter: TibetanLetter }) {
       className={`tile ${revealed ? 'revealed' : ''}`}
       onClick={() => setRevealed(r => !r)}
     >
-      <span className="tile-glyph">{letter.tibetan}</span>
+      <TibetanGlyph className="tile-glyph" letter={letter} />
       <span className="tile-wylie">{letter.wylie}</span>
       {revealed && <span className="tile-pronunciation">{letter.pronunciation}</span>}
     </button>

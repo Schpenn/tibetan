@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Fireworks } from '../components/Fireworks';
+import { TibetanGlyph } from '../components/TibetanGlyph';
 import type { GameState, Direction } from '../hooks/useGameState';
 import type { TibetanLetter } from '../data/alphabet';
 import './ResultsScreen.css';
@@ -62,7 +63,7 @@ export function ResultsScreen({ state, onHome, onRetry }: Props) {
           <div className="wrong-list">
             {state.wrongAnswers.map(l => (
               <div key={l.id} className="wrong-item">
-                <span className="wrong-glyph">{l.tibetan}</span>
+                <TibetanGlyph className="wrong-glyph" letter={l} />
                 <span className="wrong-wylie">{l.wylie}</span>
               </div>
             ))}
