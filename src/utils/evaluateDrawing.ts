@@ -288,7 +288,9 @@ export function evaluateDrawing(
 ): DrawingEvaluation {
   try {
     const normalizedDrawing = normalize(drawing);
-    if (!('pixels' in normalizedDrawing)) return normalizedDrawing;
+    if (!('pixels' in normalizedDrawing) && normalizedDrawing.status !== 'rejected') {
+      return normalizedDrawing;
+    }
 
     const targetReferences = references[targetLetterId];
     if (!Array.isArray(targetReferences)) {
@@ -311,6 +313,22 @@ export function evaluateDrawing(
       if (competingReferences.length === 0) {
         return { status: 'evaluation-failure', reason: 'missing-competing-references' };
       }
+    }
+
+    if (!('pixels' in normalizedDrawing)) {
+      for (const reference of targetReferences) {
+        if (!('pixels' in normalize(reference))) {
+          return { status: 'evaluation-failure', reason: 'invalid-reference' };
+        }
+      }
+      for (const letterId of competingIds) {
+        for (const reference of references[letterId]) {
+          if (!('pixels' in normalize(reference))) {
+            return { status: 'evaluation-failure', reason: 'invalid-reference' };
+          }
+        }
+      }
+      return normalizedDrawing;
     }
 
     const targetScore = scoreReferences(normalizedDrawing, targetReferences);

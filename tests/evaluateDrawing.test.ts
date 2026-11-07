@@ -133,6 +133,24 @@ test('reports missing and malformed references as evaluation failures', () => {
   });
 });
 
+test('validates references before returning safeguard rejections', () => {
+  const excessive = { width: 10, height: 10, data: new Uint8Array(100) };
+  const malformed = { width: 2, height: 2, data: new Uint8Array(3) };
+
+  assert.deepEqual(evaluateDrawing(excessive, 'unknown', {}), {
+    status: 'evaluation-failure',
+    reason: 'missing-target-reference',
+  });
+  assert.deepEqual(evaluateDrawing(excessive, 'ka', { ka: [malformed], kha: [kha] }), {
+    status: 'evaluation-failure',
+    reason: 'invalid-reference',
+  });
+  assert.deepEqual(evaluateDrawing(excessive, 'ka', { ka: [ka], kha: [malformed] }), {
+    status: 'evaluation-failure',
+    reason: 'invalid-reference',
+  });
+});
+
 test('reports malformed and oversized drawing rasters as invalid input', () => {
   assert.deepEqual(
     evaluateDrawing({ width: 4, height: 4, data: new Uint8Array(15) }, 'ka', references),
