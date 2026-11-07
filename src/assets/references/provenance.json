@@ -1,0 +1,28 @@
+{
+  "version": "uchen-print-bootstrap-v1",
+  "style": "Uchen (dbu-can), upright headed Tibetan print forms; not cursive Ume, calligraphy, or stroke-order instruction.",
+  "status": "font-prototype-only",
+  "scoredDrawingReleaseReady": false,
+  "review": null,
+  "source": {
+    "project": "Noto Serif Tibetan",
+    "url": "https://github.com/google/fonts/tree/86aced91de05cd4f96a06838124cca45be337b2b/ofl/notoseriftibetan",
+    "upstream": "https://github.com/notofonts/tibetan",
+    "file": "NotoSerifTibetan[wght].ttf",
+    "localFile": "NotoSerifTibetan.ttf",
+    "modified": false,
+    "sha256": "060ec022b04c306de3f58d051fb0e1cf81a5b610c5910fbfc43bba154c057cda"
+  },
+  "license": {
+    "id": "OFL-1.1",
+    "file": "OFL.txt",
+    "attribution": "Copyright 2022 The Noto Project Authors (https://github.com/notofonts/tibetan)",
+    "redistribution": "Include the copyright notice and OFL.txt with the font. Do not sell the font by itself. No endorsement by the authors is implied."
+  },
+  "limitations": [
+    "Two font weights are prototype variants, not independently reviewed handwriting examples.",
+    "No Tibetan handwriting reviewer has approved these references.",
+    "Human calibration and held-out fixtures, including real mouse, touch, and stylus input, have not been obtained.",
+    "Do not enable scored drawing recognition until all 30 consonants have reviewed licensed references and the held-out quality gate in DRAWING-QUIZ-PLAN.md is met."
+  ]
+}

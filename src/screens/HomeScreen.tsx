@@ -1,4 +1,5 @@
 import './HomeScreen.css';
+import { REFERENCE_LICENSE_URL } from '../data/drawingReferences';
 
 interface Props {
   onOverview: () => void;
@@ -40,6 +41,9 @@ export function HomeScreen({ onOverview, onFlashcard, onQuiz }: Props) {
       <div className="stats-hint">
         <span>Made by Espen Bjørnsen, procrastinating instead of actually studying Tibetan script.</span>
       </div>
+      <p className="stats-hint">
+        Uchen print forms · Noto Project Authors · <a href={REFERENCE_LICENSE_URL}>Font license (OFL 1.1)</a>
+      </p>
     </div>
   );
 }

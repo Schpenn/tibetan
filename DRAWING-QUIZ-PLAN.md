@@ -19,17 +19,18 @@ saved drawing history, and a trained handwriting model.
 
 ## Step 1: Establish reference shapes and evaluation fixtures
 
-- [ ] Select and document the Tibetan script style being taught.
-- [ ] Obtain appropriately licensed reference shapes and record their source,
+- [x] Select and document the Tibetan script style being taught (Uchen print
+      prototype; see [README.md](README.md)).
+- [x] Obtain appropriately licensed prototype reference shapes and record their source,
       license, and any required attribution alongside the assets.
-- [ ] Use stable IDs from [alphabet.ts](src/data/alphabet.ts) to associate
+- [x] Use stable IDs from [alphabet.ts](src/data/alphabet.ts) to associate
       references with consonants. Use an explicit asset manifest rather than
       assuming every letter ID is a convenient filename.
 - [ ] Obtain multiple approved examples per consonant, preferably reviewed by
       someone knowledgeable in Tibetan writing.
-- [ ] Use these same reference shapes in answer feedback so the evaluator and
+- [x] Use these same reference shapes in answer feedback so the future evaluator and
       teaching material agree.
-- [ ] Font-rendered references may bootstrap the prototype, but do not treat
+- [x] Font-rendered references may bootstrap the prototype, but do not treat
       them as validated handwriting references. Do not rely on system fonts.
 - [ ] Collect labeled evaluation drawings from several people:
       - Acceptable examples, including imperfect beginner drawings.
@@ -44,6 +45,14 @@ saved drawing history, and a trained handwriting model.
 **Done when:** reference assets have documented provenance, and labeled fixtures
 exist for a representative subset of distinct and easily confused consonants.
 All 30 consonants must have reference coverage before scored release.
+
+**Current status:** all 30 have explicit, licensed Noto Uchen font mappings
+with two prototype weights, used by teaching and review displays. Provenance
+is in `src/assets/references/provenance.json`; synthetic smoke recipes and
+the human intake type are in `src/data/drawingFixtures.ts`. Human fixtures
+are empty. Expert-reviewed handwriting references, independent writer splits,
+and real mouse/touch/stylus fixtures remain outstanding. Step 1 is **not
+complete**, and no scored drawing release is authorized by font coverage.
 
 ## Step 2: Prototype the evaluator before building scored gameplay
 

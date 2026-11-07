@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { TibetanGlyph } from './TibetanGlyph';
 import type { TibetanLetter } from '../data/alphabet';
 import type { Direction } from '../hooks/useGameState';
 import './LetterCard.css';
@@ -30,18 +31,18 @@ export function LetterCard({ letter, direction = 'tibetan-to-wylie', showAnswer,
           {isReverse ? (
             <h2 className="wylie prompt-wylie">{letter.wylie}</h2>
           ) : (
-            <span className="tibetan-glyph">{letter.tibetan}</span>
+            <TibetanGlyph className="tibetan-glyph" letter={letter} />
           )}
           {onFlip && <p className="tap-hint">Tap to reveal</p>}
         </div>
         <div className="letter-card-back">
           {isReverse ? (
             <>
-              <span className="tibetan-glyph">{letter.tibetan}</span>
+              <TibetanGlyph className="tibetan-glyph" letter={letter} />
               <h2 className="wylie small">{letter.wylie}</h2>
             </>
           ) : (
-            <span className="tibetan-glyph small">{letter.tibetan}</span>
+            <TibetanGlyph className="tibetan-glyph small" letter={letter} />
           )}
           {!isReverse && <h2 className="wylie">{letter.wylie}</h2>}
           <p className="pronunciation">{letter.pronunciation}</p>

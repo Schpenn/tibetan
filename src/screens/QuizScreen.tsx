@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 import { ProgressBar } from '../components/ProgressBar';
+import { TibetanGlyph } from '../components/TibetanGlyph';
 import type { TibetanLetter } from '../data/alphabet';
 import { ALL_LETTERS } from '../data/alphabet';
 import type { Direction } from '../hooks/useGameState';
@@ -54,7 +55,7 @@ export function QuizScreen({ letters, direction, currentIndex, score, streak, on
         {isReverse ? (
           <span className="wylie-quiz-prompt">{letter.wylie}</span>
         ) : (
-          <span className="tibetan-quiz-glyph">{letter.tibetan}</span>
+          <TibetanGlyph className="tibetan-quiz-glyph" letter={letter} />
         )}
         <p className="prompt-text">
           {isReverse ? 'Which letter is this?' : 'What is this letter?'}
@@ -69,7 +70,7 @@ export function QuizScreen({ letters, direction, currentIndex, score, streak, on
             onClick={() => onAnswer(opt.id === letter.id)}
           >
             {isReverse ? (
-              <span className="opt-tibetan">{opt.tibetan}</span>
+              <TibetanGlyph className="opt-tibetan" letter={opt} />
             ) : (
               <>
                 <span className="opt-wylie">{opt.wylie}</span>
